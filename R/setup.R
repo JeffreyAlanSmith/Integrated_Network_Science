@@ -12,6 +12,7 @@ install.packages("dplyr", repos = "https://rweb.crmda.ku.edu/cran/", dependencie
 install.packages("purrr", repos = "https://rweb.crmda.ku.edu/cran/", dependencies = TRUE)
 install.packages("car", repos = "https://rweb.crmda.ku.edu/cran/", dependencies = TRUE)
 install.packages("ergm", repos = "https://rweb.crmda.ku.edu/cran/", dependencies = TRUE)
+install.packages("ergm.ego", repos = "https://rweb.crmda.ku.edu/cran/", dependencies = TRUE)
 install.packages("NbClust", repos = "https://rweb.crmda.ku.edu/cran/", dependencies = TRUE)
 install.packages("tnet", repos = "https://rweb.crmda.ku.edu/cran/", dependencies = TRUE)
 install.packages("NLP", repos = "https://rweb.crmda.ku.edu/cran/", dependencies = TRUE)
