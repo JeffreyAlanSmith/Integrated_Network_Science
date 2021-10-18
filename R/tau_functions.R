@@ -1,21 +1,34 @@
-
-##########################################################################################
-tau_stat_function=function(network,weight.vector){
-tceno=covariance.expectedvalue(tcen=t(as.matrix(summary(network~triadcensus(0:15)))),network=network)
-
-weight.vector=as.matrix(weight.vector)
-tau=tau.function(weighting.vector=weight.vector,observed.triads=as.matrix(tceno[,1]),
-expected.values=as.matrix(tceno[,4]),covariance.matrix=tceno[,7:ncol(tceno)])
-
-list(tau=tau,data.frame(observed.triads=as.matrix(tceno[,1]),expected.triads=as.matrix(tceno[,4]),weight.vector=weight.vector))
-
+tau_stat_function <- function(network, weight.vector){ 
+  # Arguments:
+  # network: network of interest, in network format
+  # weight.vector: vector of triads to sum up for tau statistic
+  
+  tmat <- t(as.matrix(summary(network ~ triadcensus(0:15))))
+  tceno <- covariance.expectedvalue(tcen = tmat, 
+                                    network = network)
+  weight.vector <- as.matrix(weight.vector)
+  
+  tau <- tau.function(weighting.vector = weight.vector, 
+                 observed.triads = as.matrix(tceno[, 1]),
+                 expected.values = as.matrix(tceno[,4]),
+                 covariance.matrix = tceno[, 7:ncol(tceno)])
+  
+  tau_list <- list(tau = tau, 
+                   data.frame(observed.triads = as.matrix(tceno[,1]),
+                              expected.triads = as.matrix(tceno[,4]), 
+                              weight.vector = weight.vector))
+  
+  return(tau_list)
 }
 
-tau.function<-function(weighting.vector,observed.triads,expected.values,covariance.matrix){
-tau=(t(weighting.vector)%*%observed.triads-t(weighting.vector)%*%expected.values)/(sqrt(t(weighting.vector)%*%covariance.matrix%*%weighting.vector));
+tau.function <- function(weighting.vector, 
+                         observed.triads, 
+                         expected.values, 
+                         covariance.matrix){
 
-    return (tau);
+  tau <- (t(weighting.vector) %*% observed.triads - t(weighting.vector) %*% expected.values) / (sqrt(t(weighting.vector) %*% covariance.matrix %*% weighting.vector))
 
+    return (tau)
 }
 
 
