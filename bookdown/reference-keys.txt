@@ -1,8 +1,0 @@
-introduction
-how-to-read-the-book
-citations-and-use
-updates-and-feedback
-acknowledgments
-basic-introduction-to-r
-preliminaries
-packages
