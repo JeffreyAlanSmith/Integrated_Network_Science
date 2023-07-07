@@ -40,4 +40,4 @@ install.packages("ggraph", repos = "https://cloud.r-project.org", dependencies =
 install.packages("tidygraph", repos = "https://cloud.r-project.org", dependencies = TRUE)
 install.packages("ergm.count", repos = "https://cloud.r-project.org", dependencies = TRUE)
 install.packages("remotes", repos = "https://cloud.r-project.org", dependencies = TRUE)
-
+install.packages("Rglpk", repos = "https://cloud.r-project.org", dependencies = TRUE)
